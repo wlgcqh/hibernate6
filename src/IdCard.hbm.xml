@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.qiheng.hibernate.IdCard" table="idCard">
+		
+		<id name="id" column="id" type="string">
+			<generator class="uuid">
+			</generator>
+		</id>
+		
+		<property name="number" column="number" type="long"></property>
+		<many-to-one name="person" class="com.qiheng.hibernate.Person" cascade="all" unique="true">
+			<column name="person_id"></column>
+		</many-to-one>
+		
+	</class>
+
+</hibernate-mapping>
